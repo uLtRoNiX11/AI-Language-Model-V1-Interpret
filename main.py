@@ -10,20 +10,34 @@ def submit_question():
     answer_text.insert(tk.END, f"Answer to \"{question}\":\n{answer}")
     answer_text.config(state=tk.DISABLED)
 
+def clear_text():
+  # Check if question_entry is an Entry widget
+  if isinstance(question_entry, tk.Entry):
+      question_entry.delete(0, tk.END)
+  else:  # Assuming question_entry is a Text widget
+      question_entry.delete(1.0, tk.END)
+  # Check if answer_text is an Entry widget
+  if isinstance(answer_text, tk.Entry):
+      answer_text.delete(0, tk.END)
+  else: # Assuming answer_text is a Text widget
+      answer_text.delete(1.0, tk.END)  
+      
+
 # Create the main window
 window = tk.Tk()
 window.title("AI Language Model V1 Interpret")
-window.configure(bg="#03c2fc")
+window.configure(bg="#03c2fc")  # Light blue background
 
 # Make the window resizable
 window.resizable(True, True)
 
 # Create a frame to hold the widgets
 frame = tk.Frame(window, padx=10, pady=10)
-frame.pack(fill=tk.BOTH, expand=True)
+frame.configure(bg="#03c2fc")
+frame.pack(fill=None, expand=True)
 
 # Create labels
-question_label = tk.Label(frame, text="Enter your question:")
+question_label = tk.Label(frame, text="Enter your question:", bg="#03c2fc")
 question_label.grid(row=0, column=0, sticky="w")
 
 # Create a Text widget for the question with word wrap
@@ -36,7 +50,7 @@ question_scrollbar.grid(row=1, column=1, sticky="ns")
 question_entry['yscrollcommand'] = question_scrollbar.set
 
 # Create an answer label
-answer_label = tk.Label(frame, text="Answer:")
+answer_label = tk.Label(frame, text="Answer:", bg="#03c2fc")
 answer_label.grid(row=3, column=0, sticky="w")
 
 # Create a Text widget for the answer with word wrap
@@ -52,9 +66,13 @@ answer_text['yscrollcommand'] = answer_scrollbar.set
 frame.columnconfigure(0, weight=1)
 frame.rowconfigure(4, weight=1)
 
-# Create a button to submit the question
-submit_button = tk.Button(frame, text="Submit", fg="white" , bg="green" , command=submit_question)
+# Create a button to submit the question (matching clear button style)
+submit_button = tk.Button(frame, text="Submit", fg="white", bg="green", command=submit_question)
 submit_button.grid(row=7, column=0, pady=10, sticky="ew")
+
+# Create the clear button (matching submit button style)
+clear_button = tk.Button(frame, text="Clear", fg="white", bg="red", command=clear_text)
+clear_button.grid(row=8, column=0, pady=10, sticky="ew")
 
 # Start the main loop
 window.mainloop()
