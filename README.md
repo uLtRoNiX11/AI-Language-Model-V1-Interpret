@@ -1,5 +1,9 @@
 _**This project implements a simple interactive program that utilizes the Gemini API to answer your questions. It demonstrates how to connect to Gemini and retrieve generated text responses.**_
 
+**Screenshot of Working:**
+
+![image](https://github.com/user-attachments/assets/9bcc7ba9-af89-40b4-ba08-c6ad9b399755)
+
 **Features:**
 
   - Leverages the Gemini API for text generation.
