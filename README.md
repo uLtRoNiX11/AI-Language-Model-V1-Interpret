@@ -18,7 +18,7 @@ _**This project implements a simple interactive program that utilizes the Gemini
 
   Clone this repository:
 	
-		git clone https://github.com/uLtRoNiX11/AI-Language-Model-V1-Interpret.git 
+	git clone https://github.com/uLtRoNiX11/AI-Language-Model-V1-Interpret.git 
 	
   Install required libraries:
 	
