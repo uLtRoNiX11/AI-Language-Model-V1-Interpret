@@ -1,7 +1,7 @@
 import google.generativeai as genai
 
 # Replace with your Gemini API key (if required)
-gemini_api_key = "AIzaSyDJ2qZy3w4YIw9_SOw6xpSfKBB-6mJIAcY" 
+gemini_api_key = "ENTER YOUR GEMINI API KEY HERE" 
 
 def get_answer(question):
 
